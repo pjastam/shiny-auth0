@@ -12,7 +12,7 @@ var env = {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/private-apps/login/');
+  res.redirect('/private-apps/');
 });
 
 router.get('/login',
@@ -28,7 +28,7 @@ router.get('/logout', function(req, res){
 router.get('/callback',
   passport.authenticate('auth0', { failureRedirect: '/private-apps/login' }),
   function(req, res) {
-    res.redirect(req.session.returnTo || '/private-apps/reports/');
+    res.redirect(req.session.returnTo || '/private-apps/');
   });
 
 
