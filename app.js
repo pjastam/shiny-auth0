@@ -12,6 +12,7 @@ var Auth0Strategy = require('passport-auth0');
 dotenv.load();
 
 var routes = require('./routes/index');
+var reports = require('./routes/reports');
 
 // This will configure Passport to use Auth0
 var strategy = new Auth0Strategy({
@@ -55,6 +56,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/private-apps/', routes);
+app.use('/private-apps/reports/', reports);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
